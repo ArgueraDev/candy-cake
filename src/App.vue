@@ -2,9 +2,9 @@
   <div id="appp">
     <nav
       class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #d63384"
+      style="background-color: #d291bc"
     >
-      <div class="container px-4 px-lg-5">
+      <div class="container-fluid px-5">
         <a class="navbar-brand" href="#/">
           <img src="candy-cake-logo.svg" alt="logo" width="50" />
           Candy Cake</a
@@ -28,18 +28,47 @@
               >
             </li>
             <li class="nav-item">
+              <a class="nav-link active" href="#/market">Tienda</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active" href="#/quienes-somos"
                 >¿Quiénes Somos?</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#/market">Market</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#contactos">Contactos</a>
+              <a class="nav-link active" href="#/contacto">Contacto</a>
             </li>
           </ul>
+          <form class="d-flex mx-3" @submit.prevent="buscar()">
+            <div class="g-search">
+              <input
+                id="buscador"
+                placeholder="Buscar"
+                type="search"
+                class="input-search"
+                v-model.trim="search"
+                v-on:keyup.enter="buscar()"
+              />
+              <div class="fancy-bg"></div>
+              <div class="search-icon">
+                <svg
+                  class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr"
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <path
+                      d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </form>
           <form class="d-flex">
+            <h5 class="text-white my-auto" title="Opciónes">
+              <i class="bi bi-gear-fill"></i>
+            </h5>
             <h3
               hidden
               class="text-white mx-2"
@@ -47,6 +76,14 @@
               v-on:click="preguntas"
             >
               <i class="bi bi-patch-question"></i>
+            </h3>
+            <h3
+              hidden
+              class="text-white mx-2"
+              v-if="Object.keys(usuario).length != 0"
+              v-on:click="carrito"
+            >
+              <i class="bi-cart-fill me-1"></i>
             </h3>
             <div class="dropdown" v-if="Object.keys(usuario).length != 0">
               <h3
@@ -60,16 +97,10 @@
               >
                 <i class="bi bi-three-dots"></i>
               </h3>
-
               <ul
                 class="dropdown-menu dropdown-menu-lg-end"
                 aria-labelledby="dropdownMenuLink"
               >
-                <li>
-                  <a class="dropdown-item" href="#/carrito"
-                    ><i class="bi-cart-fill me-1"></i> Carrito</a
-                  >
-                </li>
                 <li>
                   <a class="dropdown-item" href="#" v-on:click="CerrarSesion"
                     ><i class="bi bi-power"></i> Cerrar Sesión</a
@@ -78,6 +109,7 @@
               </ul>
             </div>
             <h3
+              hidden
               v-else
               class="text-white"
               title="Iniciar Sesión"
@@ -92,55 +124,50 @@
     </nav>
     <router-view />
 
-    <section id="contactos" class="py-5" style="background-color: #d63384">
-      <div class="container">
-        <h2 class="h1-responsive font-weight-bold text-center text-white mb-5">
-          Contactos
-        </h2>
-        <div class="row">
-          <div class="col-md-4 d-flex justify-content-center">
-            <a
-              href="https://www.instagram.com/candy.cake.pasteleria"
-              class="text-center text-decoration-none text-white"
-              title="Instagram"
-            >
-              <span class="btn-contact">
-                <i class="bi bi-instagram"></i>
-              </span>
-              Instagram
-            </a>
+    <!--footer-->
+    <div class="footer-dark">
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 item">
+              <h3>Menú</h3>
+              <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">¿Quiénes Somos?</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 item">
+              <h3>Información</h3>
+              <ul>
+                <li><a href="#">Política de Uso</a></li>
+                <li><a href="#">Política de Envió</a></li>
+                <li><a href="#">Política de Reserva</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 item text">
+              <h3>Contáctanos</h3>
+              <p><i class="bi bi-telephone"></i> +503 7811 0980</p>
+              <p><i class="bi bi-whatsapp"></i> +503 6983 3379</p>
+              <p><i class="bi bi-envelope"></i> rosayasminruiz.12@gmail.com</p>
+            </div>
+            <div class="col item social">
+              <a href="https://www.facebook.com/candy.cake.usu" title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/candy.cake.pasteleria"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
           </div>
-          <div class="col-md-4 d-flex justify-content-center">
-            <a
-              href="https://www.facebook.com/candy.cake.usu"
-              class="text-center text-decoration-none text-white"
-              title="Facebook"
-              ><span class="btn-contact"><i class="bi bi-facebook"></i></span>
-              Facebook</a
-            >
-          </div>
-          <div class="col-md-4 d-flex justify-content-center">
-            <a
-              href="https://api.whatsapp.com/send?phone=+50378110980"
-              class="text-center text-decoration-none text-white"
-              title="Whatsapp"
-            >
-              <span class="btn-contact"><i class="bi bi-whatsapp"></i></span>
-              Whatsapp</a
-            >
-          </div>
+          <p class="copyright">Candy Cake © 2022</p>
         </div>
-      </div>
-    </section>
+      </footer>
+    </div>
 
-    <!-- Footer-->
-    <footer class="py-4" style="background-color: #d63384">
-      <div class="container">
-        <p class="m-0 text-center text-white">
-          Copyright &copy; Candy Cake 2021
-        </p>
-      </div>
-    </footer>
     <div
       class="modal fade"
       id="login"
@@ -154,7 +181,7 @@
         <div class="modal-content">
           <div
             class="modal-header text-light text-center"
-            style="background-color: #d63384"
+            style="background-color: #d291bc"
           >
             <h5 class="modal-title" id="staticBackdropLabel">Iniciar Sesión</h5>
             <button
@@ -224,7 +251,7 @@
         <div class="modal-content">
           <div
             class="modal-header text-light text-center"
-            style="background-color: #d63384"
+            style="background-color: #d291bc"
           >
             <h5 class="modal-title" id="staticBackdropLabel">Registro</h5>
             <button
@@ -316,6 +343,7 @@ export default {
   data() {
     return {
       socket: {},
+      search: "",
       usuario: {},
       login: {
         correo: "",
@@ -468,17 +496,26 @@ export default {
     preguntas() {
       location.href = "./#/preguntas";
     },
+    carrito() {
+      location.href = "./#/carrito";
+    },
+    buscar() {
+      if (this.search.length != 0) {
+        location.href = "./#/market/" + this.search;
+        location.reload();
+      }
+    },
   },
   mounted() {
     this.socket.on("usurioActivo", (items) => {
       this.usuario = items;
-      this.$swal.fire({
+      /*this.$swal.fire({
         position: "top-end",
         icon: "success",
         title: "Bienvenido " + items.nombre,
         showConfirmButton: false,
         timer: 2000,
-      });
+      });*/
     });
     this.socket.on("notificacion", (item) => {
       if (item == "Registrado!") {
@@ -565,7 +602,7 @@ export default {
 }
 
 .boton {
-  background-color: #d63384;
+  background-color: #d291bc;
   color: white;
 }
 
@@ -575,9 +612,9 @@ export default {
 }
 
 .boton2 {
-  border: 1px solid #d63384;
+  border: 1px solid #d291bc;
   background-color: #ffffff00;
-  color: #d63384;
+  color: #d291bc;
 }
 .boton2:hover {
   border: 1px solid #b83174;
@@ -590,5 +627,172 @@ export default {
   align-items: center;
   justify-content: center;
   min-height: 80vh;
+}
+
+/* search */
+.g-search {
+  --input-text-color: #fff;
+  --input-bg-color: #ffffff00;
+  --focus-input-bg-color: transparent;
+  --text-color: #fff;
+  --active-color: #fff;
+  --width-of-input: 200px;
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+}
+
+.g-search {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  padding: 0.8em;
+  padding-inline: var(--inline-padding-of-input);
+  width: var(--width-of-input);
+  position: relative;
+  isolation: isolate;
+}
+
+.fancy-bg {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.search-icon {
+  position: absolute;
+}
+
+.search-icon {
+  fill: var(--text-color);
+  left: var(--inline-padding-of-input);
+  width: 17px;
+}
+
+.input-search {
+  color: var(--input-text-color);
+  width: 100%;
+  margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+  background: transparent;
+  border: none;
+}
+
+.input-search:focus {
+  outline: none;
+}
+
+.input-search::placeholder {
+  color: var(--text-color);
+}
+
+.input-search:focus ~ .fancy-bg {
+  border: 1px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+.input-search:focus ~ .search-icon {
+  fill: var(--active-color);
+}
+
+.input-search:valid ~ .close-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*footer*/
+.footer-dark {
+  padding: 50px 0;
+  color: #f0f9ff;
+  background-color: #d291bc;
+}
+
+.footer-dark h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.footer-dark ul {
+  padding: 0;
+  list-style: none;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.footer-dark ul a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+  .footer-dark .item:not(.social) {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom: 36px;
+}
+
+@media (max-width: 767px) {
+  .footer-dark .item.text {
+    margin-bottom: 0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity: 0.6;
+  margin-bottom: 0;
+}
+
+.footer-dark .item.social {
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .footer-dark .item.social {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+  margin: 0 8px;
+  color: #fff;
+  opacity: 0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity: 0.9;
+}
+
+.footer-dark .copyright {
+  text-align: center;
+  padding-top: 24px;
+  opacity: 0.8;
+  font-size: 13px;
+  margin-bottom: 0;
 }
 </style>

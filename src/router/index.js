@@ -17,7 +17,13 @@ const routes = [{
   path: "/market",
   name: "Market",
   component: () =>
-    import("../views/Market.vue"),
+    import("../views/Tienda.vue"),
+}, {
+  path: "/market/:search",
+  name: "Market",
+  component: () =>
+    import("../views/Tienda.vue"),
+  props: true,
 }, {
   path: "/compra/:id",
   name: "Compra",
@@ -39,7 +45,12 @@ const routes = [{
   name: "Preguntas",
   component: () =>
     import("../views/Preguntas.vue"),
-}, ];
+}, {
+  path: "/contacto",
+  name: "Contacto",
+  component: () =>
+    import("../views/Contacto.vue"),
+},];
 
 const router = new VueRouter({
   routes,

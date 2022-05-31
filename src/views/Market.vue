@@ -1,56 +1,73 @@
 <template>
   <div id="market" class="container">
-    <div class="row py-5">
+    <div class="left-content">
       <div class="col-sm-3">
         <div class="card-body shadow" style="background-color: #d63384">
           <h5 class="card-title text-center text-light">
             Categorias de Productos
           </h5>
           <br />
-          <ul class="list-group list-group-flush">
-            <li
-              class="btn list-group-item color"
-              v-on:click="categoria('todo')"
-            >
-              Todos los Productos
-            </li>
-            <li
-              class="btn list-group-item color"
-              v-on:click="categoria('Chocolate')"
-            >
-              Chocolate
-            </li>
-            <li
-              class="btn list-group-item color"
-              v-on:click="categoria('Fresa')"
-            >
-              Fresas
-            </li>
-            <li
-              class="btn list-group-item color"
-              v-on:click="categoria('Imagen')"
-            >
-              Imagen Personalizada
-            </li>
-            <li
-              class="btn list-group-item color"
-              v-on:click="categoria('Semilla')"
-            >
-              Semillas
-            </li>
-            <li
-              class="btn list-group-item color"
-              v-on:click="categoria('Postre')"
-            >
-              Postres
-            </li>
-            <li class="btn list-group-item color">
+          <ul class="nav flex-column">
+            <li class="nav-item">
               <a
-                class="nav-link text-white"
-                aria-current="page"
-                href="#/personalizado"
-                >Personalizar</a
+                class="nav-link color"
+                role="button"
+                v-on:click="categoria('todo')"
+                >Todos los Productos</a
               >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link color"
+                role="button"
+                v-on:click="categoria('Pastel')"
+                >Pasteles</a
+              >
+              <ul>
+                <li>
+                  <a
+                    class="nav-link color"
+                    role="button"
+                    v-on:click="categoria('Chocolate')"
+                    >Chocolate</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link color"
+                    role="button"
+                    v-on:click="categoria('Fresa')"
+                    >Fresa</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link color"
+                    role="button"
+                    v-on:click="categoria('Imagen')"
+                    >Imagen Personalizada</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link color"
+                    role="button"
+                    v-on:click="categoria('Semilla')"
+                    >Semillas</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link color"
+                role="button"
+                v-on:click="categoria('Postre')"
+                >Postres</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link color" href="#/personalizado">Personalizar</a>
             </li>
           </ul>
         </div>
@@ -66,7 +83,7 @@
               <div class="card-body text-center">
                 <h5 class="card-title">{{ item.nombre }}</h5>
                 <p class="card-text">${{ item.precio }}</p>
-                <a v-bind:href="'#/compra/' + item._id" class="btn boton"
+                <a v-bind:href="'#/compra/' + item._id" class="btn iconbtn"
                   >Comprar</a
                 >
               </div>
@@ -79,6 +96,32 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="right-content">
+      <div class="title-container">
+        <img :src="countryData.flag" class="flag" />
+        <div>
+          <div class="country-name">{{ countryData.fullName }}</div>
+          <div>{{ countryData.description }}</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div>
+          <div class="sub-title">Area, km<sup>2</sup></div>
+          <div class="stat-value">{{ countryData.area }}</div>
+        </div>
+        <div>
+          <div class="sub-title">Population</div>
+          <div class="stat-value">{{ countryData.population }}</div>
+        </div>
+        <div>
+          <div class="sub-title">GDP, billion</div>
+          <div class="stat-value">{{ "$" + countryData.gdp }}</div>
+        </div>
+      </div>
+
+      <div class="sub-title">Largest cities</div>
     </div>
   </div>
 </template>
@@ -149,5 +192,25 @@ export default {
 .boton:hover {
   background-color: #d63384;
   color: white;
+}
+
+.iconbtn {
+  text-decoration: none;
+  background-color: #cb611a;
+  color: #fff;
+  border-radius: 25%;
+  display: flex;
+  box-shadow: 5px 5px 10px #ad5216, -5px -5px 10px #e9701e;
+}
+.iconbtn:focus {
+  animation: shadow 0.15s ease-in-out;
+}
+@keyframes shadow {
+  0% {
+    box-shadow: inset 5px 5px 10px #ad5216, inset -5px -5px 10px #e9701e;
+  }
+  100% {
+    box-shadow: none;
+  }
 }
 </style>

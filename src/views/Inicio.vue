@@ -1,7 +1,7 @@
 <template>
-  <div class="Inicio" v-if="Object.keys(productos).length != 0">
+  <div class="container" v-if="Object.keys(productos).length != 0">
     <!-- Header-->
-    <header class="bg-light">
+    <div class="bg-light">
       <div
         id="carouselExampleCaptions"
         class="carousel slide"
@@ -95,7 +95,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-    </header>
+    </div>
     <!-- Section-->
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
@@ -129,7 +129,7 @@
         <div class="modal-content">
           <div
             class="modal-header text-light"
-            style="background-color: #d63384"
+            style="background-color: #d291bc"
           >
             <h5 class="modal-title" id="staticBackdropLabel">
               {{ producto.nombre }}
@@ -154,7 +154,7 @@
     </div>
   </div>
   <div id="load" v-else>
-    <div class="spinner-border" style="color: #d63384" role="status">
+    <div class="spinner-border" style="color: #d291bc" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
