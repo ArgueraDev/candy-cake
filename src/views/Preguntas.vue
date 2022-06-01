@@ -129,7 +129,7 @@
           data-bs-parent="#accordionFlushExample"
         >
           <div class="accordion-body">
-            Nuestro teléfono de atención al cliente es el 6983 - 3379 y puede
+            Nuestro teléfono de atención al cliente es el +503 6983 3379 y puede
             llamarnos de lunes a viernes de 08:30 am a 06:30 pm. Sea lo que sea
             que desee preguntarnos, estaremos encantados de atenderle y
             ayudarle.

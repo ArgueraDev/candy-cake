@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="Object.keys(productos).length != 0">
+  <div v-if="Object.keys(productos).length != 0">
     <!-- Header-->
     <div class="bg-light">
       <div
@@ -96,9 +96,62 @@
         </button>
       </div>
     </div>
+    <!-- info-->
+    <section>
+      <div
+        class="w-100 my-3 shadow px-3 py-5"
+        style="background-color: #d291bc"
+      >
+        <div class="text-center mt-3">
+          <h1 class="fst-italic text-white">Tipo de Pago</h1>
+        </div>
+        <div class="row p-5">
+          <div class="col-md-6 text-center text-white text-center">
+            <h3 class="fst-italic text-white">Tarjeta</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100"
+              height="100"
+              fill="currentColor"
+              class="bi bi-credit-card"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"
+              />
+              <path
+                d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"
+              />
+            </svg>
+          </div>
+          <div class="col-md-6 text-center text-white">
+            <h3 class="fst-italic text-white">Contra Entrega</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100"
+              height="100"
+              fill="currentColor"
+              class="bi bi-box2-heart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982Z"
+              />
+              <path
+                d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5Zm0 1H7.5v3h-6l2.25-3ZM8.5 4V1h3.75l2.25 3h-6ZM15 5v10H1V5h14Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section-->
-    <section class="py-5">
+    <section class="pb-5">
       <div class="container px-4 px-lg-5 mt-5">
+        <div class="text-center">
+          <h3 class="fst-italic">Ultimos Productos Agregados</h3>
+        </div>
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
           <div class="col" v-for="item in productos" :key="item._id">
             <div
@@ -180,7 +233,7 @@ export default {
   },
   mounted() {
     this.socket.on("recibirProductos", (items) => {
-      this.productos = items;
+      this.productos = items.slice(0, 6);
     });
   },
   methods: {

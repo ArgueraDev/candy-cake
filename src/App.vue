@@ -96,6 +96,11 @@
                     Frecuentes</a
                   >
                 </li>
+                <li>
+                  <a class="dropdown-item" href="#/politicas"
+                    ><i class="bi bi-exclamation-circle"></i> Políticas</a
+                  >
+                </li>
                 <li v-if="Object.keys(usuario).length != 0">
                   <a class="dropdown-item" href="" v-on:click="CerrarSesion"
                     ><i class="bi bi-power"></i> Cerrar Sesión</a
@@ -135,9 +140,7 @@
             <div class="col-md-4 item">
               <h3>Información</h3>
               <ul>
-                <li><a href="#">Políticas de Uso</a></li>
-                <li><a href="#">Política de Envió</a></li>
-                <li><a href="#">Política de Reserva</a></li>
+                <li><a href="#/politicas">Políticas</a></li>
                 <li><a href="#/preguntas">Preguntas Frecuentes</a></li>
               </ul>
             </div>
