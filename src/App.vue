@@ -66,17 +66,6 @@
             </div>
           </form>
           <form class="d-flex">
-            <h5 class="text-white my-auto" title="Opciónes">
-              <i class="bi bi-gear-fill"></i>
-            </h5>
-            <h3
-              hidden
-              class="text-white mx-2"
-              title="Preguntas Frecuentes"
-              v-on:click="preguntas"
-            >
-              <i class="bi bi-patch-question"></i>
-            </h3>
             <h3
               hidden
               class="text-white mx-2"
@@ -85,39 +74,44 @@
             >
               <i class="bi-cart-fill me-1"></i>
             </h3>
-            <div class="dropdown" v-if="Object.keys(usuario).length != 0">
-              <h3
+            <div class="dropdown">
+              <h5
+                class="text-white my-auto"
                 role="button"
-                id="dropdownMenuLink"
+                id="dropOpciones"
                 data-bs-toggle="dropdown"
                 data-bs-display="static"
                 aria-expanded="false"
-                class="text-white"
-                title="Opciones"
+                title="Opciónes"
               >
-                <i class="bi bi-three-dots"></i>
-              </h3>
+                <i class="bi bi-gear-fill"></i>
+              </h5>
               <ul
                 class="dropdown-menu dropdown-menu-lg-end"
-                aria-labelledby="dropdownMenuLink"
+                aria-labelledby="dropOpciones"
               >
                 <li>
-                  <a class="dropdown-item" href="#" v-on:click="CerrarSesion"
+                  <a class="dropdown-item" href="#/preguntas"
+                    ><i class="bi bi-question-circle"></i> Preguntas
+                    Frecuentes</a
+                  >
+                </li>
+                <li v-if="Object.keys(usuario).length != 0">
+                  <a class="dropdown-item" href="" v-on:click="CerrarSesion"
                     ><i class="bi bi-power"></i> Cerrar Sesión</a
+                  >
+                </li>
+                <li v-else>
+                  <a
+                    class="dropdown-item"
+                    href=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#login"
+                    ><i class="bi bi-person-circle"></i> Iniciar Sesión</a
                   >
                 </li>
               </ul>
             </div>
-            <h3
-              hidden
-              v-else
-              class="text-white"
-              title="Iniciar Sesión"
-              data-bs-toggle="modal"
-              data-bs-target="#login"
-            >
-              <i class="bi bi-person-circle"></i>
-            </h3>
           </form>
         </div>
       </div>
@@ -132,18 +126,19 @@
             <div class="col-md-4 item">
               <h3>Menú</h3>
               <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Tienda</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">¿Quiénes Somos?</a></li>
+                <li><a href="#/">Inicio</a></li>
+                <li><a href="#/market">Tienda</a></li>
+                <li><a href="#/contacto">Contacto</a></li>
+                <li><a href="#/quienes-somos">¿Quiénes Somos?</a></li>
               </ul>
             </div>
             <div class="col-md-4 item">
               <h3>Información</h3>
               <ul>
-                <li><a href="#">Política de Uso</a></li>
+                <li><a href="#">Políticas de Uso</a></li>
                 <li><a href="#">Política de Envió</a></li>
                 <li><a href="#">Política de Reserva</a></li>
+                <li><a href="#/preguntas">Preguntas Frecuentes</a></li>
               </ul>
             </div>
             <div class="col-md-4 item text">
