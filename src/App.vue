@@ -159,6 +159,11 @@
                 title="Instagram"
                 ><i class="bi bi-instagram"></i
               ></a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=50369833379&text&app_absent=0"
+                title="Whatsapp"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
             </div>
           </div>
           <p class="copyright">Candy Cake © 2022</p>
