@@ -186,7 +186,7 @@ export default {
   },
   mounted() {
     this.socket.on("recibirProductos", (items) => {
-      this.productos = items.slice(0, 6);
+      this.productos = items.slice(0, 9);
     });
   },
   methods: {
