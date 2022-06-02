@@ -68,7 +68,12 @@
           Postres
         </button>
         <!--menu3-->
-        <button class="acordeon" type="button" v-on:click="personalizar()">
+        <button
+          hidden
+          class="acordeon"
+          type="button"
+          v-on:click="personalizar()"
+        >
           Personalizar
         </button>
       </div>
