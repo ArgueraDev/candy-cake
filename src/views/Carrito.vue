@@ -26,7 +26,7 @@
     </div>
   </div>
   <div id="load" v-else>
-    <div class="spinner-border" style="color: #d63384" role="status">
+    <div class="spinner-border" style="color: #d291bc" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
     <h3>No a realizado ninguna compra</h3>

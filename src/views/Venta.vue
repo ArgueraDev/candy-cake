@@ -110,7 +110,7 @@
                         checked
                       />
                       <label class="form-check-label" for="pago1">
-                        Pago Personal
+                        Pago en Efectivo
                       </label>
                     </div>
                     <div class="form-check form-switch">
@@ -215,7 +215,7 @@
     </div>
   </div>
   <div id="load" v-else>
-    <div class="spinner-border" style="color: #d63384" role="status">
+    <div class="spinner-border" style="color: #d291bc" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
@@ -464,17 +464,15 @@ export default {
 };
 </script>
 
-
-
 <style>
 .boton {
   background-color: #ffffff00;
-  border: 1px solid #d63384;
-  color: #d63384;
+  border: 1px solid #d291bc;
+  color: #d291bc;
 }
 
 .boton:hover {
-  background-color: #d63384;
+  background-color: #d291bc;
   color: white;
 }
 

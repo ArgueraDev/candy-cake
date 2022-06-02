@@ -1,6 +1,16 @@
 <template>
   <div id="Preguntas" class="container">
-    <img src="banner.png" class="d-block w-100" alt="..." />
+    <div class="card border-0">
+      <img src="baner.jpg" class="card-img" alt="..." />
+      <div class="card-img-overlay bg-img-banner">
+        <div class="texto-banner">
+          <div class="texto-b">
+            <h1 class="fst-italic">Preguntas Frecuentes</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingOne">
@@ -221,3 +231,22 @@
     </div>
   </div>
 </template>
+
+<style>
+.texto-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.texto-b {
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+
+.bg-img-banner {
+  background-color: #d291bcb0;
+}
+</style>

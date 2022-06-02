@@ -99,7 +99,7 @@
     <!-- info-->
     <section>
       <div
-        class="w-100 my-3 shadow px-3 py-5"
+        class="w-100 my-5 shadow px-3 py-5"
         style="background-color: #d291bc"
       >
         <div class="text-center mt-3">

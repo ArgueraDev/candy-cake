@@ -39,7 +39,7 @@
               <a class="nav-link active" href="#/contacto">Contacto</a>
             </li>
           </ul>
-          <form class="d-flex mx-3" @submit.prevent="buscar()">
+          <form class="d-flex me-3" @submit.prevent="buscar()">
             <div class="g-search">
               <input
                 id="buscador"
@@ -66,17 +66,16 @@
             </div>
           </form>
           <form class="d-flex">
-            <h3
-              hidden
-              class="text-white mx-2"
+            <h4
+              class="text-white my-auto"
               v-if="Object.keys(usuario).length != 0"
               v-on:click="carrito"
             >
               <i class="bi-cart-fill me-1"></i>
-            </h3>
+            </h4>
             <div class="dropdown">
-              <h5
-                class="text-white my-auto"
+              <h4
+                class="text-white my-auto ms-3"
                 role="button"
                 id="dropOpciones"
                 data-bs-toggle="dropdown"
@@ -85,7 +84,7 @@
                 title="Opciónes"
               >
                 <i class="bi bi-gear-fill"></i>
-              </h5>
+              </h4>
               <ul
                 class="dropdown-menu dropdown-menu-lg-end"
                 aria-labelledby="dropOpciones"
@@ -121,6 +120,7 @@
         </div>
       </div>
     </nav>
+
     <router-view />
 
     <!--footer-->
