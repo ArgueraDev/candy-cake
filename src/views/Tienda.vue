@@ -69,9 +69,10 @@
         </button>
         <!--menu3-->
         <button
-          hidden
           class="acordeon"
           type="button"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
           v-on:click="personalizar()"
         >
           Personalizar
@@ -82,20 +83,24 @@
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2"
     >
       <button
-        class="btn-menu"
+        class="btn text-center text-white"
+        style="background-color: #d291bc"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBackdrop"
         aria-controls="offcanvasWithBackdrop"
       >
-        <span class="icono">
-          <svg viewBox="0 0 175 80" width="40" height="40">
-            <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-            <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-            <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-          </svg>
-        </span>
-        <span class="text">MENU</span>
+        <svg viewBox="0 0 175 80" width="40" height="40">
+          <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+          <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+          <rect
+            y="60"
+            width="80"
+            height="15"
+            fill="#f0f0f0"
+            rx="10"
+          ></rect></svg
+        >Categorias
       </button>
     </div>
     <div
@@ -265,57 +270,6 @@ export default {
 }
 .botonc:active {
   transform: translateY(-1px);
-}
-
-/*btn abrir menu*/
-.btn-menu {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  border: none;
-  transition: all 0.5s ease-in-out;
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  background: #d291bc;
-  color: #f5f5f5;
-}
-
-.btn-menu:hover {
-  box-shadow: 0 0 20px 0px #2e2e2e3a;
-}
-
-.btn-menu .icono {
-  position: absolute;
-  height: 40px;
-  width: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-}
-
-.btn-menu .text {
-  transform: translateX(55px);
-}
-
-.btn-menu:hover .icono {
-  width: 175px;
-}
-
-.btn-menu:hover .text {
-  transition: all 0.5s;
-  opacity: 0;
-}
-
-.btn-menu:focus {
-  outline: none;
-}
-
-.btn-menu:active .icono {
-  transform: scale(0.85);
 }
 
 /* acordeon */

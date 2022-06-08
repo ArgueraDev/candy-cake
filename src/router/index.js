@@ -10,9 +10,9 @@ const routes = [{
     import("../views/Inicio.vue"),
 }, {
   path: "/quienes-somos",
-  name: "About",
+  name: "Sobre",
   component: () =>
-    import("../views/About.vue"),
+    import("../views/Sobre.vue"),
 }, {
   path: "/market",
   name: "Market",

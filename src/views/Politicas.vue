@@ -46,10 +46,7 @@
               incluyendo, sin limitación, imágenes, texto, logotipos, patentes,
               derechos de autor, fotografías y todos los Derechos de Propiedad
               Intelectual relacionados con ellos, son la propiedad exclusiva de
-              Candy Cake. Salvo que se indique explícitamente en este documento,
-              no se considerará que nada en estos Términos crea una licencia en
-              o bajo ninguno de dichos Derechos de Propiedad Intelectual, y tu
-              aceptas no vender, licenciar, alquilar.
+              Candy Cake. Salvo que se indique explícitamente en este documento.
             </p>
             <p>
               • Si acepta los términos está comprometido a mantener el orden y

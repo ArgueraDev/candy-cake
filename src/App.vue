@@ -159,17 +159,20 @@
                 title="Instagram"
                 ><i class="bi bi-instagram"></i
               ></a>
-              <a
-                href="https://api.whatsapp.com/send/?phone=50369833379&text&app_absent=0"
-                title="Whatsapp"
-                ><i class="bi bi-whatsapp"></i
-              ></a>
             </div>
           </div>
           <p class="copyright">Candy Cake © 2022</p>
         </div>
       </footer>
     </div>
+
+    <a
+      href="https://api.whatsapp.com/send/?phone=50369833379&text&app_absent=0"
+      class="position-fixed bottom-0 end-0 m-3 whatsapp-btn"
+      title="Comunicate con Nosotros!"
+    >
+      <i class="bi bi-whatsapp whatsapp-icon"></i
+    ></a>
 
     <div
       class="modal fade"
@@ -797,5 +800,26 @@ export default {
   opacity: 0.8;
   font-size: 13px;
   margin-bottom: 0;
+}
+
+.whatsapp-btn {
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  z-index: 100;
+}
+
+.whatsapp-btn:hover {
+  color: #000;
+}
+
+.whatsapp-icon {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 </style>

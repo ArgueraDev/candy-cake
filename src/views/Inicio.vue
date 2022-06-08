@@ -1,22 +1,49 @@
 <template>
   <div v-if="Object.keys(productos).length != 0">
     <!-- Header-->
-    <div class="bg-light">
+    <div class="position-relative">
       <img src="banner1.png" class="d-block w-100" alt="banner" />
-    </div>
-    <!-- info-->
-    <section>
-      <div
-        class="w-100 my-5 shadow px-3 py-5"
-        style="background-color: #d291bc"
+      <a
+        href="#/market"
+        class="position-absolute top-100 start-50 translate-middle btn-more"
+        >Ver Más</a
       >
+    </div>
+
+    <!--Productos-->
+    <section class="pb-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="text-center">
+          <h3 class="fst-italic">Ultimos Productos Agregados</h3>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+          <div class="col" v-for="item in productos" :key="item._id">
+            <div
+              class="card h-100 shadow"
+              data-bs-toggle="modal"
+              data-bs-target="#mostrador"
+              v-on:click="mostrar(item)"
+            >
+              <img :src="item.imagen" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ item.nombre }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- info-->
+    <section class="container">
+      <div class="w-100 my-5 px-3 py-5">
         <div class="row">
           <div class="col-md-6">
             <div class="text-center mt-3">
-              <h1 class="fst-italic text-white">Servicio a Domicilio</h1>
+              <h1 class="fst-italic">Servicio a Domicilio</h1>
             </div>
             <div class="row py-5 align-middle">
-              <div class="col-md-6 text-white text-center">
+              <div class="col-md-6 text-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="100"
@@ -31,7 +58,7 @@
                 </svg>
               </div>
               <div class="col-md-6 text-center">
-                <p class="text-white fs-5">
+                <p class="fs-5">
                   Puedes contar con nuestro servicio a domicilio si te
                   encuentras en la zona céntrica de Usulután y alrededores, si
                   quieres una entrega mucho más lejos tendrá un costo mayor.
@@ -41,11 +68,11 @@
           </div>
           <div class="col-md-6">
             <div class="text-center mt-3">
-              <h1 class="fst-italic text-white">Tipo de Pago</h1>
+              <h1 class="fst-italic">Tipo de Pago</h1>
             </div>
             <div class="row p-5">
-              <div class="col-md-6 text-center text-white text-center">
-                <h3 class="fst-italic text-white">Tarjeta</h3>
+              <div class="col-md-6 text-center">
+                <h3 class="fst-italic">Tarjeta</h3>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="100"
@@ -62,8 +89,8 @@
                   />
                 </svg>
               </div>
-              <div class="col-md-6 text-center text-white">
-                <h3 class="fst-italic text-white">Efectivo</h3>
+              <div class="col-md-6 text-center">
+                <h3 class="fst-italic">Efectivo</h3>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="100"
@@ -88,7 +115,7 @@
                 </svg>
               </div>
               <div class="text-center mt-5">
-                <p class="text-white">
+                <p>
                   Para llevar a cabo tu pedido es necesario dar un porcentaje
                   del costo por adelantado.
                 </p>
@@ -99,29 +126,6 @@
       </div>
     </section>
 
-    <!-- Section-->
-    <section class="pb-5">
-      <div class="container px-4 px-lg-5 mt-5">
-        <div class="text-center">
-          <h3 class="fst-italic">Ultimos Productos Agregados</h3>
-        </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-          <div class="col" v-for="item in productos" :key="item._id">
-            <div
-              class="card h-100 shadow"
-              data-bs-toggle="modal"
-              data-bs-target="#mostrador"
-              v-on:click="mostrar(item)"
-            >
-              <img :src="item.imagen" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h5 class="card-title">{{ item.nombre }}</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <div
       class="modal fade"
       id="mostrador"
@@ -199,3 +203,53 @@ export default {
   },
 };
 </script>
+
+<style>
+.btn-more {
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: #fff;
+  background-color: #d291bc;
+}
+
+.btn-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.btn-more:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-more::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-more::after {
+  background-color: #d291bc;
+}
+
+.btn-more:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+</style>
