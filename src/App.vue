@@ -495,7 +495,7 @@ export default {
         title: "Términos y Condiciones de Candy Cake",
         html:
           "<p>Esta página web es propiedad y está operado por Candy Cake. Estos Términos establecen las condiciones bajo los cuales tú puedes usar nuestra Web y los servicios ofrecidos por nosotros. Esta web ofrece un catálogo y un Marketplace para la compra de nuestros productos. Al acceder o usar la web de nuestro servicio, usted aprueba que haya leído, entendido y aceptado estar sujeto a estos Términos</p>" +
-          "<p>• El Servicio y todos los materiales incluidos o transferidos, incluyendo, sin limitación, imágenes, texto, logotipos, patentes, derechos de autor, fotografías y todos los Derechos de Propiedad Intelectual relacionados con ellos, son la propiedad exclusiva de Candy Cake. Salvo que se indique explícitamente en este documento, no se considerará que nada en estos Términos crea una licencia en o bajo ninguno de dichos Derechos de Propiedad Intelectual, y tu aceptas no vender, licenciar, alquilar.</p>" +
+          "<p>• El Servicio y todos los materiales incluidos o transferidos, incluyendo, sin limitación, imágenes, texto, logotipos, patentes, derechos de autor, fotografías y todos los Derechos de Propiedad Intelectual relacionados con ellos, son la propiedad exclusiva de Candy Cake. Salvo que se indique explícitamente en este documento.</p>" +
           "<p>• Si acepta los términos está comprometido a mantener el orden y el debido respeto.</p>",
       });
     },
